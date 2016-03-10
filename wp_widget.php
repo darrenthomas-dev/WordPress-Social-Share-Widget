@@ -1,20 +1,20 @@
 <?php
 /**
  * Plugin Name: Social Share Widget
- * Plugin URI: https://github.com/darrenthomas5
+ * Plugin URI: https://github.com/darrenthomas5/WordPress-Social-Share-Widget
  * Description: Social Share Widget is a lightweight Wordpress plugin that adds social share icons. It currently supports Facebook, Twitter, Pintrest, Google+ and linkedin.
  * Version: 1.0
  * Author: Darren Thomas
  * Author URI: http://darrenthomas.me.uk
- * License: GPLv2 or later
- * License URI: http://www.gnu.org/Licenses/gpl-2.0.html
+ * License: GPLv3 or later
+ * License URI: http://www.gnu.org/licenses/gpl.html
  *
  * Copyright (C) 2016 Darren Thomas (support@darrenthomas.me.uk)
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,8 +22,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 class Social_Share_Widget extends WP_Widget {
@@ -35,14 +34,18 @@ class Social_Share_Widget extends WP_Widget {
 
       // Base ID of the widget
       'social-share',
+
       // Name of the widget as in UI
       'Social Share Icons',
+
       // Widget description and classname
       array (
         'classname'   => 'social_share_wrapper',
         'description' => 'Social Share Widget is a lightweight Wordpress plugin that adds social share icons. It currently supports Facebook, Twitter, Pintrest, Google+ and linkedin.'
       )
+
     );
+
   }
 
   // Back-end form of the widget
@@ -137,19 +140,19 @@ class Social_Share_Widget extends WP_Widget {
       // Code to run and display the output ?>
       <ul>
         <?php if( 1 == $instance['facebook']) { ?>
-          <li><a title="<?php _e( 'Share On Facebook', THEMEDOMAIN ); ?>" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($share_page_url); ?>"><i class="fa fa-facebook marginright"></i></a></li><?php
+          <li><a title="<?php _e( 'Share On Facebook', THEMEDOMAIN );  ?>" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($share_page_url); ?>"><i class="fa fa-facebook marginright"></i></a></li><?php
         } ?>
         <?php if( 1 == $instance['twitter']) { ?>
-          <li><a title="<?php _e( 'Share On Twitter', THEMEDOMAIN ); ?>" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $share_page_url; ?>&amp;url=<?php echo $share_page_url; ?>"><i class="fa fa-twitter marginright"></i></a></li><?php
+          <li><a title="<?php _e( 'Share On Twitter', THEMEDOMAIN );   ?>" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $share_page_url; ?>&amp;url=<?php echo $share_page_url; ?>"><i class="fa fa-twitter marginright"></i></a></li><?php
         } ?>
         <?php if( 1 == $instance['pintrest']) { ?>
           <li><a title="<?php _e( 'Share On Pinterest', THEMEDOMAIN ); ?>" target="_blank" href="http://www.pinterest.com/pin/create/button/?url=<?php echo urlencode($share_page_url); ?>&amp;media=<?php echo urlencode($pin_thumb[0]); ?>"><i class="fa fa-pinterest marginright"></i></a></li><?php
         } ?>
         <?php if( 1 == $instance['google']) { ?>
-          <li><a title="<?php _e( 'Share On Google+', THEMEDOMAIN ); ?>" target="_blank" href="https://plus.google.com/share?url=<?php echo $share_page_url; ?>"><i class="fa fa-google-plus marginright"></i></a></li><?php
+          <li><a title="<?php _e( 'Share On Google+', THEMEDOMAIN );   ?>" target="_blank" href="https://plus.google.com/share?url=<?php echo $share_page_url; ?>"><i class="fa fa-google-plus marginright"></i></a></li><?php
         } ?>
         <?php  if( 1 == $instance['linkedin']) { ?>
-          <li><a title="<?php _e( 'Share On LinkedIn', THEMEDOMAIN ); ?>" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode($share_page_url); ?>&amp;title=<?php echo get_the_title(); ?>&amp;summary=<?php get_the_excerpt(); ?>&amp;source=<?php get_the_author_id(); ?>"><i class="fa fa-linkedin marginright"></i></a></li><?php
+          <li><a title="<?php _e( 'Share On LinkedIn', THEMEDOMAIN );  ?>" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode($share_page_url); ?>&amp;title=<?php echo get_the_title(); ?>&amp;summary=<?php get_the_excerpt(); ?>&amp;source=<?php get_the_author_id(); ?>"><i class="fa fa-linkedin marginright"></i></a></li><?php
         } ?>
       </ul>
       <?php echo $args['after_widget']; ?>
